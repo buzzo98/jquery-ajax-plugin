@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Test</title>
+    </head>
+    <body>
+        <form id="test">
+            <input type="text" name="nome">
+            <input type="text" name="cognome">
+            <input type="submit" value="invia">
+        </form>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="main.js"></script>
+        <script type="text/javascript">
+        var data
+        $( "#test" ).on( "submit", function( e ) {
+            //don't send data
+            e.preventDefault();
+
+            //prepare data
+            var $form = $( this );
+            data = utility.convertJSON( $form );
+            console.log(data);
+
+            //setting send data
+            url  = "php/crossDomainPOST.php";
+            type = "POST",
+            cross= "y";
+            function returnData(e){
+                console.log(e);
+                //your code here
+            }; 
+
+            //send data
+            utility.asincrono(returnData, data, url, type, cross);
+        });
+        </script>
+    </body>
+</html>
