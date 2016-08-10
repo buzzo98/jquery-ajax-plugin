@@ -9,10 +9,13 @@ if (typeof jQuery != 'undefined') {
          * cross    = if call is crossDomain --> y else ---> n
          * default  = call isn't crossDomain of default
          */
+         baseFunction: function(e){
+             console.log(e);
+         },
          asincrono: function(funzione, dati, url, metodo, cross){
             //check if param exist
             if (dati        == 'undefined') dati = ""; 
-            if (funzione    == 'undefined') funzione = baseFunction();
+            if (funzione    == 'undefined') funzione = utility.baseFunction();
             if (url         == 'undefined') exit;
             if (metodo      == 'undefined') metodo = "post";
 
